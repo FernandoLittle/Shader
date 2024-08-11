@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmnmfr86oy7ha"]
+
+[ext_resource type="Shader" path="res://Shader/hexago.gdshader" id="1_0g2qc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkipb"]
+shader = ExtResource("1_0g2qc")
+shader_parameter/resol = Vector2(600, 400)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jkipb")
+offset_right = 600.0
+offset_bottom = 400.0

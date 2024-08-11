@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://vtvx58pnxujt"]
+
+[ext_resource type="Shader" path="res://Shader/Cosmicgod.gdshader" id="1_fgsp1"]
+[ext_resource type="Texture2D" uid="uid://be2f5e0kjs8ak" path="res://ArteCabulosa/Rosto2.png" id="2_p4va2"]
+
+[sub_resource type="Gradient" id="Gradient_cbhs1"]
+offsets = PackedFloat32Array(0, 0.381933, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0.0117647, 0.0117647, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cpym5"]
+noise_type = 3
+frequency = 0.0175
+fractal_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_557yd"]
+seamless = true
+color_ramp = SubResource("Gradient_cbhs1")
+noise = SubResource("FastNoiseLite_cpym5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gwl0"]
+render_priority = 0
+shader = ExtResource("1_fgsp1")
+shader_parameter/offsetx = 0.0
+shader_parameter/offsety = 0.0
+shader_parameter/speed = 100.0
+shader_parameter/intensamente = 1.0
+shader_parameter/texturinha = ExtResource("2_p4va2")
+shader_parameter/noise = SubResource("NoiseTexture2D_557yd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_cj0tb"]
+material = SubResource("ShaderMaterial_5gwl0")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3fcf5"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[node name="Rostinho" type="Node3D"]
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(23.0548, 0, 0, 0, 23.0548, 0, 0, 0, 23.0548, 0, 0, 10.0962)
+mesh = SubResource("BoxMesh_cj0tb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(23.0548, 0, 0, 0, 23.0548, 0, 0, 0, 23.0548, 0, 0, 10.0962)
+shape = SubResource("ConvexPolygonShape3D_3fcf5")

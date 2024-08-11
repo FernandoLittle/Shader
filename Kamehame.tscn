@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7jmdbj53m3iq"]
+
+[ext_resource type="Shader" uid="uid://1gnmhh7d0onm" path="res://kamehameha.tres" id="1_pdgl6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_skxs1"]
+render_priority = 0
+shader = ExtResource("1_pdgl6")
+shader_parameter/ColorParameter = Color(1.3, 5, 10, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7l1tl"]
+material = SubResource("ShaderMaterial_skxs1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6om4p"]
+render_priority = 0
+shader = ExtResource("1_pdgl6")
+shader_parameter/ColorParameter = Color(2, 5, 10, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_le1ka"]
+material = SubResource("ShaderMaterial_6om4p")
+
+[sub_resource type="Environment" id="Environment_yonsb"]
+background_energy_multiplier = 0.22
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Bolinha" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_7l1tl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.21331e-08, 0.8583, 0, -0.73512, -3.75175e-08, 0, 0, 0, 0.73512, 0.799214, 0, 0)
+mesh = SubResource("CapsuleMesh_le1ka")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yonsb")

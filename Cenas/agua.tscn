@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwnvgvjkva4tv"]
+
+[ext_resource type="Shader" path="res://Shader/wateru.gdshader" id="1_rlrpp"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_g5qar"]
+size = Vector2(50, 50)
+subdivide_width = 200
+subdivide_depth = 200
+orientation = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bbb7k"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_l7ihl"]
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_bbb7k")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1gkv3"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2iu27"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_1gkv3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cd53x"]
+render_priority = 0
+shader = ExtResource("1_rlrpp")
+shader_parameter/corzinha = Color(0, 0.227451, 0.380392, 1)
+shader_parameter/corzinha2 = Color(1, 1, 1, 1)
+shader_parameter/metal = 0.7
+shader_parameter/roug = 0.18
+shader_parameter/wave1 = Vector2(1.46, 0.3)
+shader_parameter/wave2 = Vector2(0.1, 0.3)
+shader_parameter/timescale = 0.03
+shader_parameter/normalTexture1 = SubResource("NoiseTexture2D_l7ihl")
+shader_parameter/normalTexture2 = SubResource("NoiseTexture2D_2iu27")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_g5qar")
+surface_material_override/0 = SubResource("ShaderMaterial_cd53x")

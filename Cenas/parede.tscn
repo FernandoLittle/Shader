@@ -1,0 +1,118 @@
+[gd_scene load_steps=23 format=3 uid="uid://vtsw5sdepkba"]
+
+[ext_resource type="Script" path="res://Cenas/Parede.gd" id="1_f43gh"]
+[ext_resource type="Texture2D" uid="uid://c2fxrwk0wn32w" path="res://ArteCabulosa/Cabuloso4.png" id="2_8lt20"]
+[ext_resource type="Texture2D" uid="uid://dlljubppsmfk7" path="res://ArteCabulosa/Cabuloso2.png" id="3_hv1hp"]
+[ext_resource type="Texture2D" uid="uid://d0o4vlolf1u8o" path="res://ArteCabulosa/Cabuloso1.png" id="3_o8yhq"]
+[ext_resource type="Texture2D" uid="uid://lwag2cgp6duo" path="res://ArteCabulosa/Cabuloso3.png" id="4_al8ol"]
+[ext_resource type="Texture2D" uid="uid://cvhigg4u6k3k6" path="res://ArteCabulosa/Cabuloso5.png" id="6_lkd3q"]
+[ext_resource type="Texture2D" uid="uid://cgdypdf2jhgvj" path="res://ArteCabulosa/Cabuloso6.png" id="7_lyw67"]
+[ext_resource type="Texture2D" uid="uid://dwj0xukb6fd3j" path="res://ArteCabulosa/Cabuloso7.png" id="8_wkkii"]
+[ext_resource type="Texture2D" uid="uid://bxugajfcgcbin" path="res://ArteCabulosa/Cabuloso8.png" id="9_uk48s"]
+[ext_resource type="Texture2D" uid="uid://bhbyji83ftp87" path="res://ArteCabulosa/Cabuloso9.png" id="10_rpjgu"]
+[ext_resource type="Texture2D" uid="uid://dwjlm8urqsrh6" path="res://ArteCabulosa/Cabuloso10.png" id="11_lgpcl"]
+[ext_resource type="Texture2D" uid="uid://7umt5c8d0cxy" path="res://ArteCabulosa/Cabuloso11.png" id="12_15jh8"]
+[ext_resource type="Texture2D" uid="uid://cmpharoore2le" path="res://ArteCabulosa/Cabuloso12.png" id="13_l0fxb"]
+[ext_resource type="Texture2D" uid="uid://u3ctpuvv02gt" path="res://ArteCabulosa/Cabuloso13.png" id="14_c6gia"]
+[ext_resource type="Texture2D" uid="uid://dnombnh41iklo" path="res://ArteCabulosa/Cabuloso14.png" id="15_j8l0b"]
+[ext_resource type="Texture2D" uid="uid://bxmwrniqpuwts" path="res://ArteCabulosa/Cabuloso15.png" id="16_a3a43"]
+[ext_resource type="Texture2D" uid="uid://d33kg4gj10ft7" path="res://ArteCabulosa/Cabuloso16.png" id="17_fcni8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2km2"]
+albedo_texture = ExtResource("3_o8yhq")
+metallic = 0.3
+roughness = 0.5
+uv1_scale = Vector3(2.93, 1.995, 2.005)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5k7h1"]
+material = SubResource("StandardMaterial3D_q2km2")
+size = Vector3(10, 13, 1)
+
+[sub_resource type="Animation" id="Animation_f0agq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Paredinha:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hy8ac"]
+resource_name = "ToRed"
+length = 500.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Paredinha:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 123.3, 483.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(30.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"activePain"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kk13m"]
+_data = {
+"RESET": SubResource("Animation_f0agq"),
+"ToRed": SubResource("Animation_hy8ac")
+}
+
+[node name="Parede" type="Node3D" node_paths=PackedStringArray("anime", "Red")]
+script = ExtResource("1_f43gh")
+opentexture = ExtResource("3_o8yhq")
+opentexture2 = ExtResource("3_hv1hp")
+opentexture3 = ExtResource("4_al8ol")
+opentexture4 = ExtResource("2_8lt20")
+opentexture5 = ExtResource("6_lkd3q")
+opentexture6 = ExtResource("7_lyw67")
+opentexture7 = ExtResource("8_wkkii")
+opentexture8 = ExtResource("9_uk48s")
+opentexture9 = ExtResource("10_rpjgu")
+opentexture10 = ExtResource("11_lgpcl")
+opentexture11 = ExtResource("12_15jh8")
+opentexture12 = ExtResource("13_l0fxb")
+opentexture13 = ExtResource("14_c6gia")
+opentexture14 = ExtResource("15_j8l0b")
+opentexture15 = ExtResource("16_a3a43")
+opentexture16 = ExtResource("17_fcni8")
+opentime = 80
+a = -1
+anime = NodePath("AnimationPlayer")
+Red = NodePath("VisibleOnScreenNotifier3D")
+
+[node name="Paredinha" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_5k7h1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kk13m")
+}
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02674, -5.50238, 0)
+aabb = AABB(-1, -1, -1, 10, 13, 1.355)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

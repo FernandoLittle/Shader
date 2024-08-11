@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cdvmtf4oaur8a"
+path="res://.godot/imported/Semi2.obj-482ac3ca4eb8f256ad52924c36eb1a9e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Semi2.obj-482ac3ca4eb8f256ad52924c36eb1a9e.mesh"]
+
+source_file="res://Blender/Semi2.obj"
+dest_files=["res://.godot/imported/Semi2.obj-482ac3ca4eb8f256ad52924c36eb1a9e.mesh", "res://.godot/imported/Semi2.obj-482ac3ca4eb8f256ad52924c36eb1a9e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

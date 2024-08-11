@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b22knemks0wse"
+path="res://.godot/imported/Semi.obj-58a8bb60f2eeca51da7c6f87bf54e403.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Semi.obj-58a8bb60f2eeca51da7c6f87bf54e403.mesh"]
+
+source_file="res://textures/Semi.obj"
+dest_files=["res://.godot/imported/Semi.obj-58a8bb60f2eeca51da7c6f87bf54e403.mesh", "res://.godot/imported/Semi.obj-58a8bb60f2eeca51da7c6f87bf54e403.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

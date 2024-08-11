@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxhy54x1sfvav"]
+
+[ext_resource type="Shader" path="res://Shader/MyShader2.gdshader" id="1_d1svl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6mi4"]
+shader = ExtResource("1_d1svl")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_n6mi4")
+offset_right = 181.0
+offset_bottom = 181.0

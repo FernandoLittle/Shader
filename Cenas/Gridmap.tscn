@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b518mcbel26cg"]
+
+[ext_resource type="MeshLibrary" uid="uid://dpsvkuvymy8kf" path="res://ArteCabulosa/testemesh.tres" id="1_05y8k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvi3l"]
+albedo_color = Color(0.105882, 0, 0.184314, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_d2a1k"]
+material = SubResource("StandardMaterial3D_gvi3l")
+size = Vector3(1, 0.03, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46u3t"]
+albedo_color = Color(0, 0.415686, 0.690196, 1)
+metallic = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_718bs"]
+material = SubResource("StandardMaterial3D_46u3t")
+size = Vector3(0.03, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_05y8k")
+
+[node name="chao" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150738, -0.494949, 0)
+mesh = SubResource("BoxMesh_d2a1k")
+
+[node name="Parede" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.671629, 0, 0)
+mesh = SubResource("BoxMesh_718bs")

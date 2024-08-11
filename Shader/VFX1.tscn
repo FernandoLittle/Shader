@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://53jj14mt1u5y"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgoebphqou2tt" path="res://teste/florzinha.res" id="1_icse6"]
+[ext_resource type="ArrayMesh" uid="uid://dwtrbjmx4njeg" path="res://teste/circle.obj" id="2_bt62k"]
+[ext_resource type="Shader" uid="uid://bo0it1oo6syc5" path="res://Shader/circleS.tres" id="3_q4smo"]
+
+[sub_resource type="Environment" id="Environment_ysqc2"]
+background_energy_multiplier = 1.67
+ambient_light_color = Color(0.941176, 0, 0.556863, 1)
+ambient_light_energy = 0.15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wmemp"]
+render_priority = 0
+shader = ExtResource("3_q4smo")
+shader_parameter/ColorParameter = Color(0, 0.701961, 0.854902, 1)
+shader_parameter/speed = Vector2(0, -1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Florzinha" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.592815, -0.805339, 0, 0.231261, -0.170233, -0.957883, 0.77142, -0.567847, 0.28716, -0.0939406, 0, 0.31593)
+mesh = ExtResource("1_icse6")
+"blend_shapes/Key 2" = 0.0
+blend_shapes/Shrinkwrap = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ysqc2")
+
+[node name="Circle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.664157, 2.38419e-07, 1.32463)
+mesh = ExtResource("2_bt62k")
+surface_material_override/0 = SubResource("ShaderMaterial_wmemp")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://iwtqhq6mxsb1"]
+
+[sub_resource type="Curve" id="Curve_t2t42"]
+min_value = -2.0
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_quo3d"]
+curve = SubResource("Curve_t2t42")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n64vm"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 1.0
+orbit_velocity_min = -0.275
+orbit_velocity_max = 0.19
+orbit_velocity_curve = SubResource("CurveTexture_quo3d")
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8usoc"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_muro8"]
+material = SubResource("StandardMaterial3D_8usoc")
+size = 0.2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.92185, 0.585563, 0)
+trail_enabled = true
+trail_lifetime = 0.53
+process_material = SubResource("ParticleProcessMaterial_n64vm")
+draw_pass_1 = SubResource("RibbonTrailMesh_muro8")

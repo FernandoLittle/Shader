@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://di07xnl4q8ndk"]
+
+[ext_resource type="Texture2D" uid="uid://8jlqtv5lhpy0" path="res://Blender/raiozin_albedo.png" id="1_mkju0"]
+[ext_resource type="Texture2D" uid="uid://hp5xqgumnk8r" path="res://Blender/raiozin_emission.png" id="2_cr0y2"]
+
+[resource]
+albedo_texture = ExtResource("1_mkju0")
+emission_enabled = true
+emission_texture = ExtResource("2_cr0y2")

@@ -1,0 +1,52 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://dvigdagllyhny"]
+
+[ext_resource type="Texture2D" uid="uid://cf5djefybnox4" path="res://Kamehameha/Circulo.png" id="1_cba3x"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_vvns4"]
+parameter_name = "Texture2DParameter"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_3753a"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+texture = ExtResource("1_cba3x")
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_5nvmg"]
+parameter_name = "ColorParameter"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_mmvsm"]
+default_input_values = [0, 0.0, 1, 0.7]
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_3;
+
+
+
+void fragment() {
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+
+
+// FloatOp:5
+	float n_in5p1 = 0.70000;
+	float n_out5p0 = n_out3p0.x * n_in5p1;
+
+
+// Output:0
+	ALPHA = n_out5p0;
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_vvns4")
+nodes/fragment/2/position = Vector2(-460, 120)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_3753a")
+nodes/fragment/3/position = Vector2(-140, 240)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_5nvmg")
+nodes/fragment/4/position = Vector2(-120, 60)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_mmvsm")
+nodes/fragment/5/position = Vector2(180, 380)
+nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 5, 0, 0, 1)

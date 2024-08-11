@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq14ymv7c8dr6"]
+
+[ext_resource type="Shader" path="res://Shader/Miyagi1.gdshader" id="1_8gsfo"]
+[ext_resource type="Texture2D" uid="uid://dnxs7tn5dd5n6" path="res://teste/icon.svg" id="2_su6wu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycj7d"]
+shader = ExtResource("1_8gsfo")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ycj7d")
+rotation = 0.772801
+texture = ExtResource("2_su6wu")

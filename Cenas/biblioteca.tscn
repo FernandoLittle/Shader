@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdiqkmqc1lb6a"]
+
+[ext_resource type="PackedScene" uid="uid://vtvx58pnxujt" path="res://Cenas/Rostinho.tscn" id="1_ivcos"]
+[ext_resource type="PackedScene" uid="uid://gy8cbvstrwad" path="res://Cenas/Paredinha.tscn" id="2_xw53v"]
+[ext_resource type="Shader" path="res://Cenas/ShaderRed.gdshader" id="3_lqa5c"]
+[ext_resource type="Texture2D" uid="uid://dlljubppsmfk7" path="res://ArteCabulosa/Cabuloso2.png" id="4_e7bo0"]
+[ext_resource type="PackedScene" uid="uid://bm7osgvvoteds" path="res://Cenas/EyeCube.tscn" id="5_o0e8g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_owp7d"]
+render_priority = 0
+shader = ExtResource("3_lqa5c")
+shader_parameter/red = null
+shader_parameter/green = null
+shader_parameter/blue = null
+shader_parameter/offsetx = 0.085
+shader_parameter/offsety = 1.105
+shader_parameter/scale = 2.0
+shader_parameter/metal = null
+shader_parameter/roug = null
+shader_parameter/texturinha = ExtResource("4_e7bo0")
+
+[sub_resource type="BoxMesh" id="BoxMesh_a84kd"]
+material = SubResource("ShaderMaterial_owp7d")
+size = Vector3(10, 10, 1)
+
+[node name="Biblioteca" type="Node3D"]
+
+[node name="Rostinho" parent="." instance=ExtResource("1_ivcos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 38.5738)
+
+[node name="Paredinha" parent="." instance=ExtResource("2_xw53v")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14.5825)
+mesh = SubResource("BoxMesh_a84kd")
+
+[node name="Olho" parent="." instance=ExtResource("5_o0e8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338209, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375294, 0, 1.96484)

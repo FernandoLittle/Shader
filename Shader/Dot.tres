@@ -1,0 +1,68 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://bfru4ktn5yakm"]
+
+[sub_resource type="VisualShaderNodeFresnel" id="VisualShaderNodeFresnel_o3302"]
+default_input_values = [2, false, 3, 3.0]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_msxxn"]
+input_name = "view"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_kdamx"]
+input_name = "normal"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_xoksr"]
+default_input_values = [0, 0.0, 1, 0.2]
+operator = 1
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_stgkr"]
+default_input_values = [0, 0.0, 1, 4.0]
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+
+
+
+void fragment() {
+// Input:4
+	vec3 n_out4p0 = NORMAL;
+
+
+// Input:3
+	vec3 n_out3p0 = VIEW;
+
+
+// Fresnel:2
+	float n_in2p3 = 3.00000;
+	float n_out2p0 = pow(1.0 - clamp(dot(n_out4p0, n_out3p0), 0.0, 1.0), n_in2p3);
+
+
+// FloatOp:5
+	float n_in5p1 = 0.20000;
+	float n_out5p0 = n_out2p0 - n_in5p1;
+
+
+// FloatOp:6
+	float n_in6p1 = 4.00000;
+	float n_out6p0 = n_out5p0 * n_in6p1;
+
+
+// Output:0
+	ALBEDO = vec3(n_out6p0);
+
+
+}
+"
+nodes/fragment/0/position = Vector2(80, -180)
+nodes/fragment/2/node = SubResource("VisualShaderNodeFresnel_o3302")
+nodes/fragment/2/position = Vector2(-320, -140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_msxxn")
+nodes/fragment/3/position = Vector2(-640, 60)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_kdamx")
+nodes/fragment/4/position = Vector2(-600, -80)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_xoksr")
+nodes/fragment/5/position = Vector2(-280, 60)
+nodes/fragment/6/node = SubResource("VisualShaderNodeFloatOp_stgkr")
+nodes/fragment/6/position = Vector2(-100, -40)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 1, 4, 0, 2, 0, 2, 0, 5, 0, 5, 0, 6, 0, 6, 0, 0, 0)

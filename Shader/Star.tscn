@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://mug57cokbsum"]
+
+[ext_resource type="Shader" path="res://Shader/CéuEstrelado.gdshader" id="1_mh3ru"]
+[ext_resource type="Texture2D" uid="uid://dnxs7tn5dd5n6" path="res://teste/icon.svg" id="2_j1bha"]
+[ext_resource type="Script" path="res://Shader/Random.gd" id="3_jww68"]
+[ext_resource type="PackedScene" uid="uid://dp0fnfy54sdqe" path="res://Shader/fps.tscn" id="4_ofbpp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ut3hx"]
+shader = ExtResource("1_mh3ru")
+shader_parameter/position1 = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ut3hx")
+position = Vector2(534, 312)
+scale = Vector2(8.5625, 5.28906)
+texture = ExtResource("2_j1bha")
+script = ExtResource("3_jww68")
+v1 = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="FPS" parent="." instance=ExtResource("4_ofbpp")]

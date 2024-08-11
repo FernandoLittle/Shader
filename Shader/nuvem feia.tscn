@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://caoux373kayxy"]
+
+[ext_resource type="Shader" path="res://Shader/NuvemGod.gdshader" id="1_qk0ub"]
+[ext_resource type="Texture2D" uid="uid://d0o4vlolf1u8o" path="res://ArteCabulosa/Cabuloso1.png" id="2_vkfqf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oyvjd"]
+shader = ExtResource("1_qk0ub")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_oyvjd")
+position = Vector2(2402, 1450.28)
+scale = Vector2(5.01367, 2.76616)
+texture = ExtResource("2_vkfqf")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp0fnfy54sdqe"]
+
+[ext_resource type="Script" path="res://Shader/FPS.gd" id="1_3ky7p"]
+
+[node name="FPS" type="Label"]
+offset_right = 210.0
+offset_bottom = 106.0
+script = ExtResource("1_3ky7p")

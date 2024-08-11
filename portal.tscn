@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://bp5mxxvuhir26"]
+
+[ext_resource type="Shader" uid="uid://3scburhput06" path="res://portal.tres" id="1_otcj0"]
+[ext_resource type="Texture2D" uid="uid://dnevmatlw4q0t" path="res://TestTextures/1_flar1.png" id="2_cd6ol"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kssur"]
+render_priority = 0
+shader = ExtResource("1_otcj0")
+shader_parameter/FloatParameter = 6.8
+shader_parameter/ColorParameter = Color(0.266667, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_kbhuv"]
+material = SubResource("ShaderMaterial_kssur")
+size = Vector2(1.3, 1.3)
+
+[sub_resource type="Curve" id="Curve_ogr70"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_8vv6u"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_pugby"]
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_6w6bd"]
+curve_x = SubResource("Curve_ogr70")
+curve_y = SubResource("Curve_8vv6u")
+curve_z = SubResource("Curve_pugby")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_us2kf"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 0.55
+emission_ring_inner_radius = 0.45
+orbit_velocity_min = 0.5
+orbit_velocity_max = 0.53
+orbit_velocity_curve = SubResource("CurveXYZTexture_6w6bd")
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8usoc"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 0.184314, 0, 1)
+albedo_texture = ExtResource("2_cd6ol")
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_35yiy"]
+material = SubResource("StandardMaterial3D_8usoc")
+size = 0.2
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0298363)
+mesh = SubResource("QuadMesh_kbhuv")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 228
+trail_enabled = true
+trail_lifetime = 0.27
+process_material = SubResource("ParticleProcessMaterial_us2kf")
+draw_pass_1 = SubResource("RibbonTrailMesh_35yiy")

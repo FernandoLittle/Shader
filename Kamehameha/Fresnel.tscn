@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbylcwd4v11xn"]
+
+[ext_resource type="Shader" uid="uid://crmimspfkicqm" path="res://Kamehameha/Fresnel1.tres" id="1_cpjgc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qhnfn"]
+render_priority = 0
+shader = ExtResource("1_cpjgc")
+
+[sub_resource type="SphereMesh" id="SphereMesh_01f2f"]
+material = SubResource("ShaderMaterial_qhnfn")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_01f2f")

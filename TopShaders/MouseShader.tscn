@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dki31aqej0kdt"]
+
+[ext_resource type="Shader" path="res://Shader/MouseShader.gdshader" id="1_siqk8"]
+[ext_resource type="Texture2D" uid="uid://dnxs7tn5dd5n6" path="res://teste/icon.svg" id="2_1t4mu"]
+[ext_resource type="Script" path="res://Shader/MouseShader.gd" id="3_00x8g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nrqg7"]
+shader = ExtResource("1_siqk8")
+shader_parameter/MousePosition = Vector2(0, 0)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_nrqg7")
+position = Vector2(600.75, 403)
+scale = Vector2(9.41016, 6.29687)
+texture = ExtResource("2_1t4mu")
+script = ExtResource("3_00x8g")

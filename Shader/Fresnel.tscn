@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://chgptgkeng026"]
+
+[ext_resource type="Shader" uid="uid://bfru4ktn5yakm" path="res://Shader/Dot.tres" id="1_drgyh"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qu7cp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rkfcc"]
+render_priority = 0
+shader = ExtResource("1_drgyh")
+
+[sub_resource type="Environment" id="Environment_7mlri"]
+background_energy_multiplier = 0.0
+ambient_light_source = 1
+ambient_light_energy = 0.0
+reflected_light_source = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477266, 0.260042, 0.313006)
+mesh = SubResource("SphereMesh_qu7cp")
+surface_material_override/0 = SubResource("ShaderMaterial_rkfcc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.95246)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7mlri")

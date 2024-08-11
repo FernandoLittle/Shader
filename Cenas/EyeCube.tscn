@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bm7osgvvoteds"]
+
+[ext_resource type="Shader" path="res://Cenas/ShaderRed.gdshader" id="1_d0m8e"]
+[ext_resource type="Texture2D" uid="uid://bq7b8dsc0aggc" path="res://ArteCabulosa/Olho2.png" id="2_qjt73"]
+[ext_resource type="Texture2D" uid="uid://cwa2uwualy5cm" path="res://ArteCabulosa/Olho1.png" id="2_sm0t3"]
+[ext_resource type="Script" path="res://scripts/EyeCode.gd" id="3_o5quv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1sgrb"]
+render_priority = 0
+shader = ExtResource("1_d0m8e")
+shader_parameter/red = 1.0
+shader_parameter/green = 1.0
+shader_parameter/blue = 0.0
+shader_parameter/offsetx = 0.045
+shader_parameter/offsety = -0.03
+shader_parameter/scale = 2.325
+shader_parameter/metal = 1.0
+shader_parameter/roug = null
+shader_parameter/texturinha = ExtResource("2_sm0t3")
+
+[sub_resource type="BoxMesh" id="BoxMesh_8dk5l"]
+material = SubResource("ShaderMaterial_1sgrb")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="eye" type="MeshInstance3D" parent="." node_paths=PackedStringArray("myself")]
+mesh = SubResource("BoxMesh_8dk5l")
+script = ExtResource("3_o5quv")
+myself = NodePath(".")
+opentexture = ExtResource("2_qjt73")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.21818)
