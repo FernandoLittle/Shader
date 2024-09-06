@@ -1,4 +1,3 @@
-res://TopShaders/myshader.tscn
 res://Shader/MyShader.gdshader
 res://ToolKit1.tres
 res://Kamehameha/TrueRaio.tres
@@ -35,6 +34,10 @@ res://Kamehameha/Fresnel1.tres
 res://Kamehameha/Circulo.tres
 res://Punch1.tres
 res://MyStandardShader.tres
+res://Circulo.gdshader
+res://CircleMotor.gd
+res://CirculoLegal.tscn
+res://TopShaders/myshader.tscn
 res://FireHell.tscn
 res://Kamehameha/Raios.tscn
 res://FumaçaMeh.tscn
