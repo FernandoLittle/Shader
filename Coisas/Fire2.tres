@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource type="Shader" path="./Fire2.gdshader" id="1"]
+[resource]
+shader = ExtResource( 1 )
+
+
+

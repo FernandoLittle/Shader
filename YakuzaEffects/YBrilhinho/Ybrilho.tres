@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://byunloi0idyn"]
+
+[ext_resource type="Shader" path="res://YakuzaEffects/circletest.gdshader" id="1_s13fm"]
+
+[resource]
+shader = ExtResource("1_s13fm")
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/variation = 0.0

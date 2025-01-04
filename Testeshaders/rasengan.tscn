@@ -1,0 +1,165 @@
+[gd_scene load_steps=33 format=3 uid="uid://bbebesruuo3af"]
+
+[ext_resource type="Shader" path="res://Testeshaders/Rasengan.gdshader" id="1_pd04u"]
+[ext_resource type="Texture2D" uid="uid://cuvnntfpjlkca" path="res://Testeshaders/Rasengan_texture_1.png" id="2_q1bpa"]
+[ext_resource type="Texture2D" uid="uid://3a0sqigwv1g6" path="res://Testeshaders/Rasengan_texture_2.png" id="3_qb53n"]
+[ext_resource type="Texture2D" uid="uid://c6brp1chmjlub" path="res://Testeshaders/Rasengan_texture_3.png" id="4_wjl0k"]
+[ext_resource type="Shader" path="res://Coisas/rasengan.gdshader" id="5_6g7m8"]
+[ext_resource type="Shader" uid="uid://3t4eh5o7nvli" path="res://Testeshaders/VisualCode.tres" id="6_eideg"]
+[ext_resource type="Shader" path="res://Testeshaders/MyShaderSpatial.gdshader" id="7_p6ghk"]
+[ext_resource type="Texture2D" uid="uid://in0qfmf1cq2p" path="res://Testeshaders/Rasengan_suffix.png" id="8_pxlo3"]
+[ext_resource type="Shader" path="res://Coisas/Orb.gdshader" id="9_6cdor"]
+[ext_resource type="Texture2D" uid="uid://b440t383jcvhf" path="res://Coisas/Orb_texture_1.png" id="10_bcesa"]
+[ext_resource type="Texture2D" uid="uid://n6pbed328h7u" path="res://Coisas/Orb_texture_2.png" id="11_uiiik"]
+[ext_resource type="Texture2D" uid="uid://doahqwlwuqhvv" path="res://Coisas/Orb_texture_3.png" id="12_ju7o2"]
+[ext_resource type="Texture2D" uid="uid://bwfqx5n5ry4l3" path="res://Coisas/Orb_texture_4.png" id="13_r3omi"]
+[ext_resource type="Texture2D" uid="uid://c8xsrv708b8f1" path="res://Coisas/Orb_texture_5.png" id="14_0juw8"]
+[ext_resource type="Shader" path="res://Coisas/.gdshader" id="15_vjemh"]
+[ext_resource type="Texture2D" uid="uid://bcwrp6ot5cgau" path="res://Coisas/_texture_1.png" id="16_qlvrs"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ecouu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4m5o"]
+render_priority = 0
+shader = ExtResource("1_pd04u")
+shader_parameter/uv1_scale = Vector3(2, 2, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/variation = 0.0
+shader_parameter/texture_1 = ExtResource("2_q1bpa")
+shader_parameter/texture_2 = ExtResource("3_qb53n")
+shader_parameter/texture_3 = ExtResource("4_wjl0k")
+
+[sub_resource type="QuadMesh" id="QuadMesh_77hnp"]
+orientation = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d5x8u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hh8fq"]
+render_priority = 0
+shader = ExtResource("6_eideg")
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/variation = 0.0
+shader_parameter/texture_1 = ExtResource("2_q1bpa")
+shader_parameter/texture_2 = ExtResource("3_qb53n")
+shader_parameter/texture_3 = ExtResource("4_wjl0k")
+
+[sub_resource type="QuadMesh" id="QuadMesh_kv8gr"]
+material = SubResource("ShaderMaterial_hh8fq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qt35"]
+render_priority = 0
+shader = ExtResource("7_p6ghk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ui88m"]
+material = SubResource("ShaderMaterial_6qt35")
+
+[sub_resource type="Environment" id="Environment_ohh23"]
+background_energy_multiplier = 0.39
+glow_enabled = true
+glow_intensity = 0.9
+glow_strength = 0.29
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf6p2"]
+render_priority = 0
+shader = ExtResource("5_6g7m8")
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/variation = 0.0
+shader_parameter/texture_1 = ExtResource("2_q1bpa")
+shader_parameter/texture_2 = ExtResource("3_qb53n")
+shader_parameter/texture_3 = ExtResource("4_wjl0k")
+
+[sub_resource type="SphereMesh" id="SphereMesh_xdugq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvfgj"]
+render_priority = 0
+shader = ExtResource("9_6cdor")
+shader_parameter/paleta = Vector3(-0.86, 0.445, 1.69)
+shader_parameter/uv1_scale = Vector3(4, 0.5, 1)
+shader_parameter/uv1_offset = Vector3(0, 0.275, 0)
+shader_parameter/variation = 0.0
+shader_parameter/texture_1 = ExtResource("10_bcesa")
+shader_parameter/texture_2 = ExtResource("11_uiiik")
+shader_parameter/texture_3 = ExtResource("12_ju7o2")
+shader_parameter/texture_4 = ExtResource("13_r3omi")
+shader_parameter/texture_5 = ExtResource("14_0juw8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_1pf0b"]
+material = SubResource("ShaderMaterial_cvfgj")
+
+[sub_resource type="FogMaterial" id="FogMaterial_q4oaf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rnctr"]
+render_priority = 0
+next_pass = SubResource("FogMaterial_q4oaf")
+shader = ExtResource("15_vjemh")
+shader_parameter/paleta = Vector3(0.8, 2.71, 8.63)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/variation = 0.0
+shader_parameter/texture_1 = ExtResource("16_qlvrs")
+
+[sub_resource type="SphereMesh" id="SphereMesh_o4iuc"]
+material = SubResource("ShaderMaterial_rnctr")
+
+[node name="Raesngan" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0989282, -0.283944, -0.279079)
+visible = false
+mesh = SubResource("SphereMesh_ecouu")
+surface_material_override/0 = SubResource("ShaderMaterial_i4m5o")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+visible = false
+cast_shadow = 0
+mesh = SubResource("QuadMesh_77hnp")
+surface_material_override/0 = SubResource("ShaderMaterial_d5x8u")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.650867, 0, 0.759192, 0, 1, 0, -0.759192, 0, 0.650867, 0.456664, -0.178026, 0.704754)
+visible = false
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("QuadMesh_kv8gr")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99998, -0.00617048, -0.00115027, 0.006168, 0.999979, -0.00214559, 0.00116348, 0.00213845, 0.999997, 0, 0, 0)
+visible = false
+mesh = SubResource("QuadMesh_ui88m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ohh23")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9.12372e-08, 0, -1.04363)
+visible = false
+cast_shadow = 0
+mesh = SubResource("QuadMesh_77hnp")
+surface_material_override/0 = SubResource("ShaderMaterial_yf6p2")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10664, 0, -0.549759)
+visible = false
+billboard = 2
+text = "OOOOOOOOOOOOOOO"
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0792172, 0, -0.031597)
+visible = false
+texture_albedo = ExtResource("8_pxlo3")
+texture_emission = ExtResource("8_pxlo3")
+emission_energy = 0.61
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_xdugq")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.183445, -0.930587, -0.0534408, 0.291054, -0.00544377, -0.9043, 0.885514, -0.190993, 0.286157, 0.0296251, -0.00517565, 0.0123872)
+mesh = SubResource("SphereMesh_1pf0b")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_o4iuc")

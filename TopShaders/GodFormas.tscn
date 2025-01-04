@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d06trmvuj3x1g"]
 
-[ext_resource type="Shader" path="res://Shader/Formas.gdshader" id="1_04h5r"]
+[ext_resource type="Shader" path="res://Blender/Shader/Formas.gdshader" id="1_04h5r"]
 [ext_resource type="Texture2D" uid="uid://dnxs7tn5dd5n6" path="res://teste/icon.svg" id="2_3tf4d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ksxef"]
